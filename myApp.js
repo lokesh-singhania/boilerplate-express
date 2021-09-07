@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser=require('body-parser')
 var app = express();
 
 const loggerMiddleware=(req,res,next)=>{
@@ -17,9 +18,12 @@ app.get('/now',(req,res,next)=>{
 },(req,res)=>{
     res.json({time:req.time})
 })
-app.get("/name",(req,res)=>{
+app.use("/name",bodyParser.urlencoded({extended:false}))
+app.route("/name").get((req,res)=>{
     const {first,last}=req.query;
     res.json({name:`${first} ${last}`})
+}).post((req,res)=>{
+
 })
 
 app.get("/json",(req,res)=>{
