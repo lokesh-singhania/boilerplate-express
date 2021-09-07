@@ -17,7 +17,10 @@ app.get('/now',(req,res,next)=>{
 },(req,res)=>{
     res.json({time:req.time})
 })
-
+app.get("/name",(req,res)=>{
+    const {firstname,lastname}=req.query;
+    res.json({name:`${firstname} ${lastname}`})
+})
 
 app.get("/json",(req,res)=>{
     let message = "Hello json";
