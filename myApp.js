@@ -8,7 +8,7 @@ app.get("/",(req,res)=>{
     res.sendFile(__dirname+"/views/index.html")
 })
 app.use('/public',express.static(__dirname+"/public"))
-const style=process.env.MESSAGE_STYLE;
+
 console.log("style"+process.env.MESSAGE_STYLE)
 app.get("/json",(req,res)=>{
     let message = "Hello json";
